@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  student = new Student -->
+	<bean id="student" class="com.care.di02.Student"/>
+	
+	<bean id="stb" class="com.care.di02.STBean">
+		<property name="st" ref="student"/>
+		<!-- setter와 같은의미를가니는 property -->
+		<!-- 객체 저장해주는 ref -->
+		<property name="name" value="김말이"/>
+		<property name="age">
+			<value>33</value>
+		</property>
+	</bean>
+</beans>
