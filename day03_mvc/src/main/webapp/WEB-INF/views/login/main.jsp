@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>result</h3>
-	name: ${dto.name }
-	age: ${dto.getAge() }
-	addr: ${dto.getAddr() }
+	id: ${id } <br>
+	welctome, ${nick }!!<br>
+	<a href="logout">logout</a>
 </body>
 </html>
