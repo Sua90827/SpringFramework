@@ -1,1 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.member.dao.MemberDAO">
+
+	<resultMap id="member" type ="com.care.root.member.dto.MemberDTO"><!-- dto에서 사용하는 변수와 dB에서 사용하는 컬럼명을 매핑작업 해주는 것임.  type엔 dto의 위치. dto를 member라는 이름으로 사용할거다. -->
+	 	<result property="id" column="id" />
+	 	<result property="name" column="name" /><!--  property 가 변수, column은 DB  서로 매핑작업.-->
+	</resultMap>
+
+	<insert id="insertMember">
+		INSERT INTO test_mybatis VALUES(#{id}, #{name})
+	</insert>
+	
+	<select id="getList" resultMap="member"><!-- 어떤 형식으로 돌려줄지를 적는 resultMap -->
+		SELECT * FROM test_mybatis
+	</select>
+</mapper>
