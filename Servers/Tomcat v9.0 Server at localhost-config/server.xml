@@ -162,7 +162,7 @@
 
       
       
-      <Context docBase="day03_mvc" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:day03_mvc"/></Host>
+      <Context docBase="day04_mybatis" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:day04_mybatis"/></Host>
     </Engine>
   </Service>
 </Server>
