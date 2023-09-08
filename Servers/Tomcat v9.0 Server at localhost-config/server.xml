@@ -162,7 +162,7 @@
 
       
       
-      <Context docBase="day04_mybatis" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:day04_mybatis"/></Host>
+      <Context docBase="quiz_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:quiz_project"/></Host>
     </Engine>
   </Service>
 </Server>
