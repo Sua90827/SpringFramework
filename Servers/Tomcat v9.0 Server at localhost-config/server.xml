@@ -162,7 +162,7 @@
 
       
       
-      <Context docBase="quiz_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:quiz_project"/></Host>
+      <Context docBase="day07_email" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:day07_email"/></Host>
     </Engine>
   </Service>
 </Server>
