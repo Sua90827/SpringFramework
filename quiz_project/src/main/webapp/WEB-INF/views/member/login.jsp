@@ -15,8 +15,12 @@ ${msg }
 	<input type="text" id="id" name="id" placeholder="id"><br>
 	<input type="password" id="pw" name="pw" placeholder="password">
 	<input type="submit" value="login">
+	<br>
+	<input type="checkbox" name="autoLogin">AutoLogin
 </form><br>
 <a href="register">Register</a>
+
+
 <%@ include file="/WEB-INF/views/default/footer.jsp" %>
 </body>
 </html>

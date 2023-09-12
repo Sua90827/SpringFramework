@@ -1,6 +1,8 @@
 package com.care.root.member.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -67,6 +69,17 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
+	public void keepLogin(String sessionId, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sessionId", sessionId);
+		map.put("id", id);
+		dao.keepLogin(map);
+	}
+
+	@Override
+	public MemberDTO getUserSessionId(String sessionId) {
+		return dao.getUserSessionId(sessionId);
+	}
 
 
 //	public String register(String[]addr, MemberDTO dto) {
