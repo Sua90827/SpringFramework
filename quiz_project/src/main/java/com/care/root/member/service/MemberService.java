@@ -2,6 +2,8 @@ package com.care.root.member.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.care.root.member.dto.MemberDTO;
 
 public interface MemberService {
@@ -12,7 +14,9 @@ public interface MemberService {
 
 	public MemberDTO getMemberInfo(String user_id);
 
-	public void register(MemberDTO dto);
+	public void register(MemberDTO dto, String[] addr);
+
+	//public void register( MemberDTO dto);
 
 	
 

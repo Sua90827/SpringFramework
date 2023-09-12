@@ -2,6 +2,7 @@ package com.care.root.member.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class MemberController {
 	
 	@GetMapping("memberInfo")
 	public String memberInfo(Model model) {
+		System.out.println("컨트롤러리스트 동작");
 		ArrayList<MemberDTO> list = ms.getEveryMemberInfo();
 		model.addAttribute("list", list);
 		return "member/memberInfo";
@@ -66,8 +68,31 @@ public class MemberController {
 	}
 	
 	@PostMapping("registerDo")
-	public String registerDo(MemberDTO dto) {
-		ms.register(dto);
-		return "member/login";
+	public String registerDo(HttpServletRequest req, MemberDTO dto, Model model
+			) {
+		String[] addr = req.getParameterValues("addr");
+		String ad = "";
+		for(String a : addr) {
+			System.out.println(a);
+			ad += a+"/";
+		}
+		System.out.println(ad);
+		String[] addr02 = ad.split("/");
+		for(String a1 : addr02) {
+			System.out.println(a1);
+		}
+		System.out.println("-----------------dto");
+		System.out.println(dto.getId());
+		System.out.println(dto.getPw());
+		
+		ms.register(dto, req.getParameterValues("addr"));
+//		String msg = ms.register(dto);
+//		if(msg != null) {
+//			model.addAttribute("msg", msg);
+//			model.addAttribute("dto", dto);
+//			return "member/register";
+//		}else {
+			return "redirect:login";			
+//		}
 	}
 }

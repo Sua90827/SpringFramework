@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-	<a href="index.jsp"><h2>CARE LAB</h2></a>
+	<a href="index"><h2>CARE LAB</h2></a>
 	<hr>
 	<a href="index">HOME</a>
 	<c:if test="${ empty sessionScope.user_id }">
