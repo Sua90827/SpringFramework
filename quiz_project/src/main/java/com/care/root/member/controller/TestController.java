@@ -16,7 +16,7 @@ public class TestController {
 		System.out.println(req.getContextPath());  // /root Ãâ·Â
 		String msg = "<script>alert('Login first');";
 		msg+= "location.href='/root/login';</script>";
-		res.setContentType("text/html; charset UTF-8");
+		res.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = res.getWriter();
 		out.print(msg);
 	}
