@@ -15,6 +15,7 @@
          <input type="file" name="file"><br>
          <input type="submit" value="전송">
       </form>
+      <a href = "views">내용확인</a>
    </div>
    <br><br><br><br>
    <div align="center">

@@ -1,9 +1,15 @@
 package com.care.root.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,5 +45,19 @@ public class FileController {
 	   MultipartFile file = mt.getFile("file");
 	   System.out.println("mt file : "+file.getOriginalFilename());
 	   return "redirect:form";
+   }
+   
+   @GetMapping("views")
+   public String views(Model model) {
+	   model.addAttribute("list", fs.getData());
+	   return "file/result";
+   }
+   
+   @GetMapping("download")
+   public void download(@RequestParam String file, HttpServletResponse res) throws Exception{
+	   res.addHeader("Content-disposition", "attachment; fileName="+file);//클릭한 파일ㅇ 대한 이름으로 저장할 거다.
+	   File f = new File(FileService.IMAGE_REPO+"/"+file);
+	   FileInputStream in = new FileInputStream(f);
+	   FileCopyUtils.copy(in, res.getOutputStream()); //사용자에게 output 해주겠다.
    }
 }

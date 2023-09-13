@@ -3,6 +3,7 @@ package com.care.root.service;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,14 @@ public class FileServiceImpl implements FileService {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public List<FileDTO> getData(){
+		List<FileDTO> list = null;
+		try {
+			list = mapper.getData();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
