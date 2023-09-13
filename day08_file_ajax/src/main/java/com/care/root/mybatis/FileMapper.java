@@ -10,4 +10,12 @@ public interface FileMapper {
 
 	public List<FileDTO> getData();
 
+	public int delete(String id);
+
+	int modifyDo(FileDTO dto);
+
+	FileDTO selectImgName(FileDTO dto);
+
+
+
 }

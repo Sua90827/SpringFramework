@@ -14,6 +14,10 @@
 		imgName : ${dto.imgName }<br>
 		<img src="download?file=${dto.imgName }" width="100" height="100">
 		<a href="download?file=${dto.imgName }">${dto.imgName }</a>
+		<br>
+		<a href="delete?file=${dto.imgName }&id=${dto.id}">삭제</a>
+		<br>
+		<a href="modify?imgName=${dto.imgName }&id=${dto.id}&name=${dto.name}">수정</a>
 		<hr>
 	</C:forEach>
 	<a href="form">업로드로 이동</a>

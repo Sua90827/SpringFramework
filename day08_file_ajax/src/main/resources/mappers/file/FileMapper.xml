@@ -15,4 +15,16 @@
 	<select id="getData" resultMap="file">
 		select * from file_image
 	</select>
+	
+	<delete id="delete">
+		DELETE FROM file_image WHERE id=#{id}
+	</delete>
+	
+	<update id="modifyDo">
+		UPDATE file_image SET name=#{name}, img_Name=#{imgName} WHERE id=#{id}
+	</update>
+	
+	<select id="selectImgName" resultMap="file">
+		SELECT img_name FROM file_image WHERE id=#{id}
+	</select>
 </mapper>
