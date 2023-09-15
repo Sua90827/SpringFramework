@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.mybatis.board.BoardMapper">
+
+<resultMap type="com.care.root.board.dto.BoardDTO" id="board">
+	<result property="writeNo" column="Write_no" />
+	<result property="title" column="Title" />
+	<result property="content" column="Content" />
+	<result property="saveDate" column="Savedate"/>
+	<result property="hit" column="Hit"/>
+	<result property="imagineFileName" column="Image_file_name"/>
+	<result property="id" column="Id"/>
+</resultMap>
+
+	<select id="getBoardList" resultType="com.care.root.board.dto.BoardDTO">
+		SELECT * FROM mvc_board 
+	</select>
+</mapper>

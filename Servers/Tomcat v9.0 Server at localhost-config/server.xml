@@ -162,7 +162,7 @@
 
       
       
-      <Context docBase="day08_file_ajax" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:day08_file_ajax"/></Host>
+      <Context docBase="quiz_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:quiz_project"/></Host>
     </Engine>
   </Service>
 </Server>

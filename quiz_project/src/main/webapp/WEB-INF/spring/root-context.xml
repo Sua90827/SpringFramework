@@ -26,6 +26,7 @@
 </bean>
 <!-- 해당 위치의 interface를 빈으로 등록  -->
 <mybatis-spring:scan base-package="com.care.root.mybatis.member"/>
+<mybatis-spring:scan base-package="com.care.root.mybatis.board"/>
 
 <!-- rollback 해주는 애  /트랜잭션 -->
 <bean name="txMgr"
