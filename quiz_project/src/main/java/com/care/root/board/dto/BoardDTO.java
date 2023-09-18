@@ -6,8 +6,9 @@ public class BoardDTO {
 	private String content;
 	private String saveDate;
 	private int hit;
-	private String imagineFileName;
+	private String imageFileName;
 	private String id;
+	
 	public int getWriteNo() {
 		return writeNo;
 	}
@@ -38,11 +39,11 @@ public class BoardDTO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String getImagineFileName() {
-		return imagineFileName;
+	public String getImageFileName() {
+		return imageFileName;
 	}
-	public void setImagineFileName(String imagineFileName) {
-		this.imagineFileName = imagineFileName;
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 	public String getId() {
 		return id;

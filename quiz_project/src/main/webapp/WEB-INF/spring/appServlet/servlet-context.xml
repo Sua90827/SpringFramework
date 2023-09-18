@@ -26,9 +26,14 @@
 <beans:bean id="memInter" class="com.care.root.interceptor.MemberInterceptor"/>
 <beans:bean id="testInter" class="com.care.root.interceptor.TestIn"/>
 <beans:bean id="autoLogin" class="com.care.root.interceptor.AutoLoginInterceptor"/>
+<beans:bean id="board" class="com.care.root.interceptor.BoardInterceptor"/>
+
 <interceptors>
 	<interceptor>
 		<mapping path="/memberInfo"/>
+		<!-- 인터셉터
+		<mapping path="/writeForm"/>
+		 -->
 		<mapping path="/logout"/>
 		<beans:ref bean="memInter"/>
 	</interceptor>
@@ -39,6 +44,11 @@
 	<interceptor>
 		<mapping path="/index"/>
 		<beans:ref bean="autoLogin"/>
+	</interceptor>
+	
+	<interceptor>
+		<mapping path="/writeForm"/>
+		<beans:ref bean="board"/>
 	</interceptor>
 </interceptors>
 	

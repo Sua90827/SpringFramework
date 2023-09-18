@@ -5,16 +5,16 @@
 <mapper namespace="com.care.root.mybatis.board.BoardMapper">
 
 <resultMap type="com.care.root.board.dto.BoardDTO" id="board">
-	<result property="writeNo" column="Write_no" />
+	<id property="writeNo" column="Write_no" /> <!-- pk는 id로 적어준다. 나머지는 result -->
 	<result property="title" column="Title" />
 	<result property="content" column="Content" />
 	<result property="saveDate" column="Savedate"/>
 	<result property="hit" column="Hit"/>
-	<result property="imagineFileName" column="Image_file_name"/>
+	<result property="imageFileName" column="Image_file_name"/>
 	<result property="id" column="Id"/>
 </resultMap>
 
-	<select id="getBoardList" resultType="com.care.root.board.dto.BoardDTO">
+	<select id="getBoardList" resultMap="board">
 		SELECT * FROM mvc_board 
 	</select>
 </mapper>

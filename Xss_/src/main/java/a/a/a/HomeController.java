@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Handles requests for the application home page.
@@ -58,13 +59,21 @@ public class HomeController {
 	}
 	
 	@PostMapping("insert02")
-	public void insert01(@RequestParam String txt1,@RequestParam String txt2, HttpServletResponse res) throws IOException {
+	public void insert02(@RequestParam String txt1,@RequestParam String txt2, HttpServletResponse res) throws IOException {
 
 		System.out.println( txt1 );
 		System.out.println( txt2 );
 		res.setContentType("text/html; charset=utf-8");
 		PrintWriter out = res.getWriter();
 		out.print( txt1+txt2 );
+	}
+	@PostMapping("insert03")
+	public void insert03(@RequestParam String txt1,@RequestParam MultipartFile file, HttpServletResponse res) throws IOException {
+		
+		System.out.println( txt1 );
+		res.setContentType("text/html; charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print( txt1 );
 	}
 	private String replaceParam(String txt) {
 		txt = txt.replace("<", "&lt;");

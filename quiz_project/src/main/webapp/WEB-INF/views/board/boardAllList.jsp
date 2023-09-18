@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+   <%@ include file="../default/header.jsp" %>
+
 	<h3>게시판</h3>
 	
 	<table border="1">
@@ -31,27 +33,34 @@
 		</c:if>
 		
 		<c:if test="${ not empty boardList }">
+		<c:forEach var="dto" items="${list }">
 			<td>${writeNo }</td>
 			<td>${id }</td>
 			<td>${title }</td>
 			<td>${saveDate }</td>
 			<td>${hit }</td>
 			<td>${imagineFileName }</td>
+		</c:forEach>
 		</c:if>
 		
 		</tr>
 	
 	
 		<tr>
+			<td colspan="6">
 			<c:if test="${ empty sessionScope.user_id }">
-				<a href="login">글작성</a>
+				<a href="writeForm">글작성</a>
 			</c:if>
+			
 			
 			<c:if test="${ not empty sessionScope.user_id }">
 				<a href="writeForm">글작성</a>
 			</c:if>
+			</td>
 		</tr>
 		
 	</table>
+	      <%@ include file="../default/footer.jsp" %>
+	
 </body>
 </html>

@@ -17,8 +17,8 @@ public class BoardController {
 	
 	@GetMapping("board")
 	public String board(Model model) {
-		List<BoardDTO> boardList = service.getBoardList();
-		model.addAttribute("boardList", boardList);
+		//List<BoardDTO> boardList = service.getBoardList();
+		model.addAttribute("boardList", service.getBoardList());
 		return "board/boardAllList";
 	}
 	

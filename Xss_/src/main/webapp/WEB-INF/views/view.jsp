@@ -16,5 +16,10 @@
 		<input type="text" name="txt2"><br>
 		<input type="submit" value="send">
 	</form>
+	<form action="insert03" method="post" enctype="multipart/form-data">
+		<input type="text" name="txt1"><br>
+		<input type="file" name="file"><br>
+		<input type="submit" value="send">
+	</form>
 </body>
 </html>

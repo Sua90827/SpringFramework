@@ -13,8 +13,9 @@ public class BoardServiceImpl implements BoardService {
 @Autowired BoardMapper dao;
 	@Override
 	public List<BoardDTO> getBoardList() {
-		List<BoardDTO> boardList = dao.getBoardList();
-		return boardList;
+//		List<BoardDTO> boardList = dao.getBoardList();
+//		return boardList;
+		return dao.getBoardList();
 	}
 
 }
