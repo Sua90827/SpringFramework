@@ -6,17 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/img_view.js"></script>
 </head>
 <body>
    <%@ include file="../default/header.jsp" %>
    <div align="center">
       <h1>글쓰기</h1>
-      <form action="boardWrite.do" method="post" enctype="multipart/form-data">
+      <form action="writeSave" method="post" enctype="multipart/form-data">
          <table>
             <tr>
                <td>
                   <b>작성자</b><br>
-                  <input type="text" name="id" value="${ sessionScope.user_id }" readonly>
+                  <input type="text" name="id" value="${ user_id }" readonly>
                </td>
             </tr>
             <tr>
@@ -34,8 +36,9 @@
             <tr>
                <td>
                   <b>이미지파일 첨부</b>
-                  <div><img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다." /></div>
-                  <input type="file" name="file" onchange="readURL(this);">
+                  <input type="file" name="image_file_name" onchange="readURL(this);">
+                  <div><img id="preview"  width=100 height=100 alt="선택된 이미지가 없습니다." /></div>
+
                </td>
             </tr>
             <tr>

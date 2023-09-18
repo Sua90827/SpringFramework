@@ -17,4 +17,11 @@
 	<select id="getBoardList" resultMap="board">
 		SELECT * FROM mvc_board 
 	</select>
+	<insert id="writeSave" >
+	    insert into mvc_board(write_no,id,title,content,image_file_name)
+	    values(mvc_board_seq.nextval,#{id},#{title},#{content},#{imageFileName})
+	</insert>
+	<select id="getContent" resultMap="board">
+		SELECT * FROM mvc_board WHERE write_no = #{writeNo}
+	</select>
 </mapper>

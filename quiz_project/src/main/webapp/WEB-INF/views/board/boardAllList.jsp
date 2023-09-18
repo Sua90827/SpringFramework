@@ -24,32 +24,34 @@
 		</tr>
 		
 		
+		<c:if test="${ empty boardList }">
 		<tr>
 		
-		<c:if test="${ empty boardList }">
 			<td colspan="6">
 				등록된 글이 없습니다.		
 			</td>
+		</tr>
 		</c:if>
 		
 		<c:if test="${ not empty boardList }">
-		<c:forEach var="dto" items="${list }">
-			<td>${writeNo }</td>
-			<td>${id }</td>
-			<td>${title }</td>
-			<td>${saveDate }</td>
-			<td>${hit }</td>
-			<td>${imagineFileName }</td>
+		<c:forEach var="dto" items="${boardList }">
+			<tr>
+				<td>${dto.writeNo }</td>
+				<td>${dto.id }</td>
+				<td><a href="contentView?writeNo=${dto.writeNo }">${dto.title }</a></td>
+				<td>${dto.saveDate }</td>
+				<td>${dto.hit }</td>
+				<td>${dto.imageFileName }</td>
+			</tr>
 		</c:forEach>
 		</c:if>
 		
-		</tr>
 	
 	
 		<tr>
 			<td colspan="6">
 			<c:if test="${ empty sessionScope.user_id }">
-				<a href="writeForm">글작성</a>
+				<a href="login">글작성</a>
 			</c:if>
 			
 			

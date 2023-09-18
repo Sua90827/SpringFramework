@@ -8,4 +8,8 @@ public interface BoardMapper {
 
 	List<BoardDTO> getBoardList();
 
+	int writeSave(BoardDTO dto);
+
+	BoardDTO getContent(int writeNo);
+
 }
