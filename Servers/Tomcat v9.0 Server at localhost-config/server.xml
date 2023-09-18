@@ -162,7 +162,7 @@
 
       
       
-      <Context docBase="quiz_project" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:quiz_project"/></Host>
+      <Context docBase="Xss_" path="/a" reloadable="true" source="org.eclipse.jst.jee.server:Xss_"/></Host>
     </Engine>
   </Service>
 </Server>
