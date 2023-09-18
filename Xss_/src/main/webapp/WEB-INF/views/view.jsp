@@ -11,5 +11,10 @@
 		<input type="text" name="txt"><br>
 		<input type="submit" value="send">
 	</form>
+	<form action="insert02" method="post">
+		<input type="text" name="txt1"><br>
+		<input type="text" name="txt2"><br>
+		<input type="submit" value="send">
+	</form>
 </body>
 </html>

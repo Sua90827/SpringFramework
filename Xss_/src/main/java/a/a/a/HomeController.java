@@ -50,10 +50,26 @@ public class HomeController {
 	
 	@PostMapping("insert01")
 	public void insert01(@RequestParam String txt, HttpServletResponse res) throws IOException {
+		txt = replaceParam(txt);
 		System.out.println( txt );
 		res.setContentType("text/html; charset=utf-8");
 		PrintWriter out = res.getWriter();
 		out.print( txt );
 	}
 	
+	@PostMapping("insert02")
+	public void insert01(@RequestParam String txt1,@RequestParam String txt2, HttpServletResponse res) throws IOException {
+
+		System.out.println( txt1 );
+		System.out.println( txt2 );
+		res.setContentType("text/html; charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print( txt1+txt2 );
+	}
+	private String replaceParam(String txt) {
+		txt = txt.replace("<", "&lt;");
+		txt = txt.replace(">", "&gt;");
+		txt = txt.replace("\"", "&quot;");
+		return txt;
+	}
 }
