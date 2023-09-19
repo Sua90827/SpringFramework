@@ -50,6 +50,9 @@
 	
 		<tr>
 			<td colspan="6">
+				<c:forEach var="n" begin="1" end="${repeat }">
+					<a href="board?num=${n }">${ n } </a>
+				</c:forEach>
 			<c:if test="${ empty sessionScope.user_id }">
 				<a href="login">글작성</a>
 			</c:if>

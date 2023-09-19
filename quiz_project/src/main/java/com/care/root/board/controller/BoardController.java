@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,9 +27,11 @@ public class BoardController {
 	@Autowired BoardService service;
 	
 	@GetMapping("board")
-	public String board(Model model) {
+	public String board(Model model, @RequestParam(required=false, defaultValue="1") int num) {
 		//List<BoardDTO> boardList = service.getBoardList();
-		model.addAttribute("boardList", service.getBoardList());
+		Map<String, Object> map = service.getBoardList(num);
+		model.addAttribute("boardList", map.get("list"));
+		model.addAttribute("repeat", map.get("repeat") );
 		return "board/boardAllList";
 	}
 	
@@ -64,5 +67,30 @@ public class BoardController {
 		FileInputStream in = new FileInputStream(file);
 		FileCopyUtils.copy(in, res.getOutputStream());
 		in.close();
+	}
+	
+	@GetMapping("modify_form")
+	public String modifyForm(@RequestParam int writeNo, Model model) {
+		model.addAttribute("content", service.getContent(writeNo));
+		return "board/modify_form";
+	}
+	
+	@PostMapping("modify")
+	public void modify(BoardDTO dto, @RequestParam MultipartFile file,
+						HttpServletResponse res) throws Exception {//수정된 이미지가 없으면 file의 사이즈는 0이 됨.
+		System.out.println("&&&&&&&&dto $$$$ =====>"+dto.getId());
+		System.out.println("&&&&&&&&file $$$$ =====>"+file);
+		String msg = service.modify(dto,file);
+		res.setContentType("text/html; charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print( msg);
+	}
+	
+	@GetMapping("delete")
+	public void delete(@RequestParam int writeNo, @RequestParam String fileName, HttpServletResponse res) throws Exception {
+		String msg = service.delete(writeNo, fileName);
+		res.setContentType("text/html; charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print( msg);
 	}
 }
